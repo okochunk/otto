@@ -26,6 +26,7 @@ $pesel->getPesel($birthdate, $gender);
 ## Access Sample
 http://url/pesel.php
 ![sample program image](https://www.dropbox.com/s/gq1otvtdve8shat/sample1.png?raw=0)
+https://www.dropbox.com/s/gq1otvtdve8shat/sample1.png?dl=0
 
 
 ## Run Test
@@ -34,3 +35,4 @@ http://url/pesel.php
 ```
 
 ![test image](https://www.dropbox.com/s/pxic2jmffn5wlng/test1.png?raw=0)
+https://www.dropbox.com/s/pxic2jmffn5wlng/test1.png?dl=0
