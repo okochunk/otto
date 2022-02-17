@@ -25,6 +25,27 @@ class PeselTest extends TestCase
         $this->assertEquals(11, count($length_2));
     }
 
+    public function testGenerateBirthDate()
+    {
+        $pesel = New Pesel();
+        $birthdate = $pesel->generateRandomBirthDate();
+
+        $arr_birthdate = explode("-", $birthdate);
+
+        $this->assertEquals(10, strlen($birthdate));
+        $this->assertLessThan(13, $arr_birthdate[1]);
+        $this->assertLessThan(32, $arr_birthdate[2]);
+    }
+
+    public function testGenerateRandomGender()
+    {
+        $pesel = New Pesel();
+        $gender = $pesel->generateRandomGender();
+        $arr_gender = ['m', 'f'];
+
+        $this->assertContains($gender, $arr_gender);
+    }
+
     public function testMultiplier()
     {
         $pesel = New Pesel();
@@ -34,8 +55,8 @@ class PeselTest extends TestCase
         $bad_number = 8310257081;
         $checksum_2 = $pesel->sumPesel($bad_number);
         
-        $this->assertEquals($checksum, 110);
-        $this->assertEquals($checksum_2, 101);
+        $this->assertEquals(110, $checksum);
+        $this->assertEquals(101, $checksum_2);
     }
 
     public function testBirthdate()

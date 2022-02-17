@@ -34,6 +34,23 @@ Class Pesel
 
     }
 
+    public function generateRandomBirthDate()
+    {
+        $start = strtotime('1800-01-01');
+        $end = time();
+        $timestamp = mt_rand($start, $end);
+
+        return date('Y-m-d', $timestamp);
+    }
+
+    public function generateRandomGender()
+    {
+        $gender_list = ['m', 'f'];
+        $key = array_rand($gender_list);  
+
+        return $gender_list[$key];
+    }
+
     public function checkInput($pesel)
     {
         $arr = str_split($pesel);
@@ -138,7 +155,10 @@ Class Pesel
     }    
 }
 
+
 $pesel = New Pesel();
 
-// sample with given input birtdate(yyyy-mm-dd) , gender(m/f)
-$pesel->getPesel('1983-10-25', 'f');
+$birthdate = $pesel->generateRandomBirthDate();
+$gender = $pesel->generateRandomGender();
+
+$pesel->getPesel($birthdate, $gender);
